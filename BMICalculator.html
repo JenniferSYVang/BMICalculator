@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1{
+    text-align: center;
+    font: bold 70px Lucida Console;
+}
+body  {
+	padding-left: 120px;
+	padding-right: 120px;
+	padding-bottom: 50px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv74ziS6FWQfZNpo4i9_dH6A6X_TAoUl1v0_JqW5CqYcTKRMcC");
+    background-color: #98FB98;
+    font: bold 25px Courier;
+	
+}
+div {
+    border: 2px solid black;
+    outline: grey solid 15px;
+    margin: auto;    
+    padding: 30px;
+    text-align: center;
+}
+input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+button{
+	border: 2px groove darkgray;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 16px;
+</style>
+</head>
+<body>
+
+<h1>Body Mass Index Calculator</h1>
+<div>
+<p>This calculator will determine your BMI value using your height and weight. The formula used for this calculator can be found on the CDC webpage.</p>
+
+<p>Please enter in your WEIGHT in POUNDS.</p>
+
+<input id="weight">		<!-- weight = userinput-->
+
+<p>Please enter in your HEIGHT in INCHES.</p>
+
+<input id="height">		<!-- height = userinput-->
+<p></p>
+<button type="button" onclick="calculate()">Calculate BMI</button>
+
+<p id="result"></p></p>
+
+
+<script>
+function calculate() {
+    var h, w, bmi, text;
+	if (confirm("Did you enter your weight in POUNDS and height in INCHES??") == true) {
+        // Get the value of the input field with id="height"
+    h = document.getElementById("height").value;
+    
+    // Get the value of the input field with id="weight"
+    w = document.getElementById("weight").value;
+    bmi = w / (h * h) * 703;
+
+	if(!isNaN(bmi)){
+    	text = "Weight entered: " + w +"</br>Height entered: " + h + "</br></br>Based of the numbers you entered, your BMI = " + bmi;	
+    }
+    else{
+    	text = "";
+    }
+    
+	document.getElementById("result").innerHTML = text;
+    } 
+    
+}
+</script>
+</div>
+</body>
+</html> 
